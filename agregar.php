@@ -1,18 +1,28 @@
-<div>
-    <form method="GET">
-    <label>Nombre del Alumno</label><br>
-    <input type="text" name="txtnombre"><br>
-    <label>Correo del Alumno</label><br>
-    <input type="text" name="txtcorreo"><hr>
-    <input type="submit" name="" value="Agregar">
-    <a href="Lista.php">Regresar</a>
-    </form>
-</div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+</head>
+<body>
 
-<?php
+    <div class="card-body">
+    <form method="POST">
+    <label class="form-label">Nombre del Alumno</label><br>
+    <input class="form-control" type="text" name="txtnombre"><br>
+    <label class="form-label">Correo del Alumno</label><br>
+    <input class="form-control" type="text" name="txtcorreo"><hr>
+    <input class="btn btn-success" type="submit" name="" value="Agregar">
+    <a class="btn btn-danger" href="Lista.php">Regresar</a>
+    </form>
+    </div>
+
+    <?php
     include 'conexion.php';
-    $nom = $_GET['txtnombre'];
-    $cor = $_GET['txtcorreo'];
+    $nom = $_POST['txtnombre']?? null; 
+    $cor = $_POST['txtcorreo']?? null;
 
     if($nom!=null || $cor!=null){
 
@@ -23,4 +33,6 @@
         }
     }
 
-?>
+    ?>
+</body>
+</html>
